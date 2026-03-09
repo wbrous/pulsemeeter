@@ -223,6 +223,8 @@ def device_exists(device_name: str) -> bool:
     Returns:
         bool: True if the device exists, False otherwise.
     '''
+    if not device_name:
+        return False
     source_exists = get_device_by_name('source', device_name)
     sink_exists = get_device_by_name('sink', device_name)
     return source_exists is not None or sink_exists is not None
